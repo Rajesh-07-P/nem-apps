@@ -52,12 +52,14 @@ if (process.argv[2] == "rename") {
 }
 
 if (process.argv[2] == "list") {
-  fs.readdir(process.argv[3], (err, file) => {
+  fs.readdir(process.argv[3], (err, files) => {
     if (err) {
       console.log(err);
       console.log("cannot be listed");
     } else {
-      console.log(file);
+      files.forEach((file) => {
+        console.log(file);
+      });
     }
   });
 }
